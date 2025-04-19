@@ -61,7 +61,7 @@ public class _02_TextUndoRedo implements KeyListener {
 		int keycode = arg0.getKeyCode();
 		char w = arg0.getKeyChar();
 		text.append(w);
-		System.out.println(text);
+		System.out.println(text.length());
 		label.setText(text.toString());
 		
 		  if (keycode == KeyEvent.VK_BACK_SPACE && text.length() > 0) {
