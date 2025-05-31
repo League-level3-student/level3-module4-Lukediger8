@@ -13,32 +13,39 @@ public class MazeMaker {
 
     private static Random randGen = new Random();
     private static Stack<Cell> uncheckedCells = new Stack<Cell>();
+    static Cell joe;
 
     public static Maze generateMaze(int r, int c) {
         rows = r;
         cols = c;
         maze = new Maze(rows, cols);
+        int first = randGen.nextInt(rows);
+      
 
         // 1. Pick a random cell along the border and remove its exterior wall.
         //    This will be the starting point. Then select a random cell along
         //    the opposite wall and remove its exterior wall. This will be the
         //    finish line.
-        int first = randGen.nextInt(rows);
-        // 2. select a random cell in the maze to start 
-        
-        // 3. call the selectNextPath method with the randomly selected cell
+        int first1 = randGen.nextInt(rows);
+        int first2 = randGen.nextInt(cols);
 
+        // 2. select a random cell in the maze to start 
+        joe = maze.getCell(first1,first2);
+        // 3. call the selectNextPath method with the randomly selected cell
+        selectNextPath(joe);
         return maze;
     }
 
     // 4. Complete the selectNextPathMethod
     private static void selectNextPath(Cell currentCell) {
         // A. SET currentCell as visited
-
+    	joe.setBeenVisited(true);
         // B. check for unvisited neighbors using the cell
-
+    	
         // C. if has unvisited neighbors,
-
+    	if(!joe.hasBeenVisited()) {
+    	
+    	}
         // C1. select one at random.
 
         // C2. push it to the stack
