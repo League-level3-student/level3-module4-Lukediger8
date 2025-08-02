@@ -41,10 +41,24 @@ public class MazeMaker {
         // A. SET currentCell as visited
     	joe.setBeenVisited(true);
         // B. check for unvisited neighbors using the cell
-    	
+    	boolean neighborsvisited = true;
+    	int currRow = currentCell.getRow();
+    	int currCol = currentCell.getCol();
+    	if(!maze.getCell(currRow, currCol+1).hasBeenVisited()) {
+    		neighborsvisited = false;
+    	}
+    	if(!maze.getCell(currRow+1, currCol).hasBeenVisited()) {
+    		neighborsvisited = false;
+    	}
+    	if(!maze.getCell(currRow, currCol-1).hasBeenVisited()) {
+    		neighborsvisited = false;
+    	}
+    	if(!maze.getCell(currRow-1, currCol).hasBeenVisited()) {
+    		neighborsvisited = false;
+    	}
         // C. if has unvisited neighbors,
-    	if(!joe.hasBeenVisited()) {
-    	
+    	if(neighborsvisited == false) {
+    		randGen
     	}
         // C1. select one at random.
 

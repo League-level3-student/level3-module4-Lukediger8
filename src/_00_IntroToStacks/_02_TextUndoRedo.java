@@ -29,7 +29,7 @@ public class _02_TextUndoRedo implements KeyListener {
 	Stack<Character> collin = new Stack<Character>();
 	StringBuilder text = new StringBuilder();
 
-	public void builldUI() {
+	public void buildUI() {
 		frame = new JFrame();
 		panel = new JPanel();
 		label = new JLabel();
@@ -51,7 +51,7 @@ public class _02_TextUndoRedo implements KeyListener {
 
 	public static void main(String[] args) {
 		_02_TextUndoRedo m = new _02_TextUndoRedo();
-		m.builldUI();
+		m.buildUI();
 
 	}
 
