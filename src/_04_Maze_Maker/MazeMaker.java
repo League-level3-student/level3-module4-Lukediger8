@@ -39,40 +39,31 @@ public class MazeMaker {
     // 4. Complete the selectNextPathMethod
     private static void selectNextPath(Cell currentCell) {
         // A. SET currentCell as visited
-    	joe.setBeenVisited(true);
+    	currentCell.setBeenVisited(true);
         // B. check for unvisited neighbors using the cell
-    	boolean neighborsvisited = true;
-    	int currRow = currentCell.getRow();
-    	int currCol = currentCell.getCol();
-    	if(!maze.getCell(currRow, currCol+1).hasBeenVisited()) {
-    		neighborsvisited = false;
-    	}
-    	if(!maze.getCell(currRow+1, currCol).hasBeenVisited()) {
-    		neighborsvisited = false;
-    	}
-    	if(!maze.getCell(currRow, currCol-1).hasBeenVisited()) {
-    		neighborsvisited = false;
-    	}
-    	if(!maze.getCell(currRow-1, currCol).hasBeenVisited()) {
-    		neighborsvisited = false;
-    	}
+    	ArrayList<Cell> unvisitedNeighbors = getUnvisitedNeighbors(currentCell);;
         // C. if has unvisited neighbors,
-    	if(neighborsvisited == false) {
-    		randGen
-    	}
+    	if (!unvisitedNeighbors.isEmpty()) {
+    		uncheckedCells.push(currentCell);
+    		
+    	
         // C1. select one at random.
-
+    	Cell neighbor = unvisitedNeighbors.get(randGen.nextInt(unvisitedNeighbors.size()));
         // C2. push it to the stack
-
+    	uncheckedCells.push(neighbor);
         // C3. remove the wall between the two cells
-
+    	removeWalls(currentCell,neighbor);
         // C4. make the new cell the current cell and SET it as visited
-
+    	selectNextPath(neighbor);
         // C5. call the selectNextPath method with the current cell
-
+    	}
 
         // D. if all neighbors are visited
-
+    	else if(!uncheckedCells.isEmpty()) {
+    		Cell nex = uncheckedCells.pop()
+;
+    		selectNextPath(nex);
+    		}
         // D1. if the stack is not empty
 
         // D1a. pop a cell from the stack
